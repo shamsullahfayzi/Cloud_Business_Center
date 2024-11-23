@@ -1,14 +1,23 @@
 # main.py
+import _struct
 from fastapi import FastAPI, Depends, HTTPException
 from pydantic import BaseModel, ConfigDict, EmailStr
 from sqlalchemy.orm import Session
 
-from app.crud.user import process_create_user
+from app.core import security
+from app.crud.customer import process_create_user
+from app.crud.product import process_create_product
+from app.crud.salesman import process_create_salesman
 from app.models.customer import CustomerBase
+from app.models.salesman import SalesmanBase
+from app.models.product import ProductBase
 from .db import database
 from .crud.login import process_login, TokenResponse
 from .models.login_model import LoginRequest
-
+from middleware import middleware
+ROLE_CUSTOMER = "customer"
+ROLE_SALESMAN = "salesman"
+ROLE_ADMIN = "admin"
 app = FastAPI()
 
 class CustomerCreate(BaseModel):
@@ -49,6 +58,41 @@ async def customer_new_endpoint(
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
+class SalesmanCreate(BaseModel):
+    name: str
+    lname: str
+    phone: str
+    email: EmailStr
+    password: str
+    address: str | None = None
+    model_config = ConfigDict(
+        from_attributes=True,
+        arbitrary_types_allowed=True
+    )
+
+@app.post("/salesman/new/", response_model=TokenResponse)
+async def salesman_new_endpoint(request:SalesmanCreate,db:Session = Depends(database.get_db)):
+    
+    # try to create an instance of base salesman 
+    try:
+        salesman = SalesmanBase(
+            name = request.name,
+            lname = request.lname,
+            email = request.email,
+            password_hash = request.password,
+            
+            address = request.address,
+            phone = request.phone
+        
+        )
+        result  = await process_create_salesman(db,salesman)
+        if result:
+            return result
+        raise HTTPException(status_code=500,detail="Failed to create salesman")
+    except Exception as e:
+        raise HTTPException(status_code=500,detail=str(e))
+    
+
 @app.post("/login/", response_model=TokenResponse)
 async def login_endpoint(
     request: LoginRequest,
@@ -61,3 +105,46 @@ async def login_endpoint(
         raise HTTPException(status_code=401, detail="Invalid credentials")
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+
+class Product_Create(BaseModel):
+    sid:int
+    pname:str
+    pdescription:str
+    price:float
+    discount:float
+    status:str
+    wid:int
+    sid:int
+    model_config = ConfigDict(
+        from_attributes=True,
+        arbitrary_types_allowed=True
+    )
+    
+class Response_Product_Create(BaseModel):
+    success:bool
+    message:str
+    data:dict | None = None
+    error:dict | None = None
+
+@app.post("/products/new/",response_model=Response_Product_Create)
+@middleware.require_roles([ROLE_SALESMAN])
+async def new_product_endpoint(request:Product_Create,db:Session = Depends(database.get_db)):
+    try:
+        # create instance of base model
+        pb = ProductBase(
+            sid=request.sid,
+            pname = request.pname,
+            pdescription = request.pdescription,
+            price = request.price,
+            discount = request.discount,
+            status = request.status,
+            wid = request.wid,
+            cid = request.cid
+
+        )
+        success =  await process_create_product(db,pb)
+        return success if success else HTTPException(status_code=500,detail="Failed to create product")
+    except Exception as e:
+        raise HTTPException(status_code=500,detail=str(e))
+    
+    

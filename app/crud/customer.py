@@ -27,7 +27,7 @@ async def process_create_user(db: Session, customer: CustomerBase) -> Optional[T
         # Process login and return token
         login_request = LoginRequest(
             email=customer.email,
-            password=plain_password,  # Use the plain password
+            password=plain_password,     # Use the plain password
             role=customer.rid
         )
         

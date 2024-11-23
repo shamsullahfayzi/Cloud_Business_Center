@@ -1,3 +1,4 @@
+import os
 from fastapi import HTTPException
 from sqlalchemy.orm import Session
 from ..models.login_model import LoginRequest
@@ -8,9 +9,8 @@ from datetime import datetime, timedelta
 from typing import Optional, Dict, Union
 from pydantic import BaseModel
 from jose import jwt
-import secrets 
 ACCESS_TOKEN_EXPIRE_MINUTES = 120
-SECRET_KEY = secrets.token_hex(32)
+SECRET_KEY = os.getenv("SECRET_KEY", "your-secret-key")
 ALGORITHM = "HS256"
 class TokenResponse(BaseModel):
     access_token: str
@@ -31,7 +31,7 @@ async def process_login(db: Session, login_data: LoginRequest) -> Optional[Token
             raise HTTPException(status_code=401,detail="Invalid Email or Password")
         token_data = {
             "sub":login_data.email,
-            "rid":login_data.role,
+            "role":login_data.role,
             "exp": datetime.utcnow() + timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)  # Expiration
         }
         create_token = jwt.encode(token_data,SECRET_KEY,algorithm=ALGORITHM)
@@ -39,7 +39,7 @@ async def process_login(db: Session, login_data: LoginRequest) -> Optional[Token
         return TokenResponse(
             access_token=create_token,
             token_type="bearer",
-            user_data=UserResponse(id=user.uid,email=user.email)
+            user_data=UserResponse(id=user.uid,email=user.email,role="customer")
         )
             
     elif login_data.role == 2:  # salesman
@@ -54,7 +54,7 @@ async def process_login(db: Session, login_data: LoginRequest) -> Optional[Token
             
         token_data = {
             "sub":login_data.email,
-            "rid":login_data.role,
+            "role":login_data.role,
             "exp": datetime.utcnow() + timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)  # Expiration
         }
         create_token = jwt.encode(token_data,SECRET_KEY,algorithm=ALGORITHM)
@@ -62,6 +62,7 @@ async def process_login(db: Session, login_data: LoginRequest) -> Optional[Token
         return TokenResponse(
             access_token=create_token,
             token_type="bearer",
+            user_data = SalesmanResponse(id = salesman.sid,email=salesman.email,role="salesman")
         )
     
     return None 

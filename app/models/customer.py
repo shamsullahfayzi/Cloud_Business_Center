@@ -22,6 +22,7 @@ class CustomerBase(Base):
 class UserResponse(BaseModel):
     id: int
     email: str
+    role:str
     model_config = ConfigDict(
         from_attributes=True,
         arbitrary_types_allowed=True
