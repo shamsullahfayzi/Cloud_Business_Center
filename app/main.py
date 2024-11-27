@@ -1,16 +1,14 @@
 # main.py
-import _struct
 from fastapi import FastAPI, Depends, HTTPException
 from pydantic import BaseModel, ConfigDict, EmailStr
 from sqlalchemy.orm import Session
 
-from app.core import security
-from app.crud.customer import process_create_user
-from app.crud.product import process_create_product
-from app.crud.salesman import process_create_salesman
-from app.models.customer import CustomerBase
-from app.models.salesman import SalesmanBase
-from app.models.product import ProductBase
+from .crud.customer import process_create_user
+from .crud.product import process_create_product
+from .crud.salesman import process_create_salesman
+from .models.customer import CustomerBase
+from .models.salesman import SalesmanBase
+from .models.product import ProductBase
 from .db import database
 from .crud.login import process_login, TokenResponse
 from .models.login_model import LoginRequest
@@ -91,7 +89,7 @@ async def salesman_new_endpoint(request:SalesmanCreate,db:Session = Depends(data
         raise HTTPException(status_code=500,detail="Failed to create salesman")
     except Exception as e:
         raise HTTPException(status_code=500,detail=str(e))
-    
+
 
 @app.post("/login/", response_model=TokenResponse)
 async def login_endpoint(
@@ -111,15 +109,22 @@ class Product_Create(BaseModel):
     pname:str
     pdescription:str
     price:float
+    cid:int
     discount:float
     status:str
     wid:int
-    sid:int
+    stock_quantity:int
+    volumeperunit:float
+    weightperunit:float
+    estimatedArrivalDate:str
+    actualArrivalDate:str | None = None
+
     model_config = ConfigDict(
         from_attributes=True,
         arbitrary_types_allowed=True
     )
-    
+
+
 class Response_Product_Create(BaseModel):
     success:bool
     message:str
@@ -133,18 +138,19 @@ async def new_product_endpoint(request:Product_Create,db:Session = Depends(datab
         # create instance of base model
         pb = ProductBase(
             sid=request.sid,
-            pname = request.pname,
-            pdescription = request.pdescription,
-            price = request.price,
-            discount = request.discount,
-            status = request.status,
-            wid = request.wid,
-            cid = request.cid
-
+            pname=request.pname,
+            pdescription=request.pdescription,
+            price=request.price,
+            discount=request.discount,
+            status=request.status,
+            wid=request.wid,
+            cid=request.cid,
+            volumeperunit=request.volumeperunit,
+            weightperunit=request.weightperunit,
+            stock_quantity=request.stock_quantity
         )
-        success =  await process_create_product(db,pb)
-        return success if success else HTTPException(status_code=500,detail="Failed to create product")
+        product =  await process_create_product(db,pb,request.estimatedArrivalDate,request.actualArrivalDate)
+        
+        return product if product.success else HTTPException(status_code=500,detail={product.message,product.error})
     except Exception as e:
         raise HTTPException(status_code=500,detail=str(e))
-    
-    

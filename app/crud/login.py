@@ -1,5 +1,5 @@
 import os
-from fastapi import HTTPException
+from fastapi import HTTPException,Response
 from sqlalchemy.orm import Session
 from ..models.login_model import LoginRequest
 from ..models.customer import CustomerBase, UserResponse
@@ -35,10 +35,10 @@ async def process_login(db: Session, login_data: LoginRequest) -> Optional[Token
             "exp": datetime.utcnow() + timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)  # Expiration
         }
         create_token = jwt.encode(token_data,SECRET_KEY,algorithm=ALGORITHM)
-        
+        Response.set_cookie(key="access_token",value=create_token,httponly=True,secure=True,samesite="strict",max_age=ACCESS_TOKEN_EXPIRE_MINUTES*60)
         return TokenResponse(
-            access_token=create_token,
-            token_type="bearer",
+            access_token="",
+            token_type="",
             user_data=UserResponse(id=user.uid,email=user.email,role="customer")
         )
             
@@ -60,8 +60,8 @@ async def process_login(db: Session, login_data: LoginRequest) -> Optional[Token
         create_token = jwt.encode(token_data,SECRET_KEY,algorithm=ALGORITHM)
         
         return TokenResponse(
-            access_token=create_token,
-            token_type="bearer",
+            access_token="",
+            token_type="",
             user_data = SalesmanResponse(id = salesman.sid,email=salesman.email,role="salesman")
         )
     

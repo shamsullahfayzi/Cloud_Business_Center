@@ -18,6 +18,8 @@ class ProductBase(Base):
     status = Column(Float,nullable=False)
     wid = Column(Float,nullable=False)
     cid = Column(Float,nullable=False)
+    volumeperunit = Column(Float,nullable=False)
+    weightperunit = Column(Float,nullable=False)
     created_at = Column(Date),
     updated_at = (Column(Date))
 

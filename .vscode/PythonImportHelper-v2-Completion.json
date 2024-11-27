@@ -40,6 +40,14 @@
         "documentation": {}
     },
     {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
         "label": "date",
         "importPath": "datetime",
         "description": "datetime",
@@ -401,6 +409,14 @@
         "documentation": {}
     },
     {
+        "label": "Response",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
         "label": "HTTPException",
         "importPath": "fastapi",
         "description": "fastapi",
@@ -681,11 +697,52 @@
         "documentation": {}
     },
     {
+        "label": "BaseModel",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "ConfigDict",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "BaseModel",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "ConfigDict",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
         "label": "EmailStr",
         "importPath": "pydantic",
         "description": "pydantic",
         "isExtraImport": true,
         "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "time",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "time",
+        "description": "time",
+        "detail": "time",
         "documentation": {}
     },
     {
@@ -705,19 +762,19 @@
         "documentation": {}
     },
     {
-        "label": "ProductBase",
-        "importPath": "app.models.product",
-        "description": "app.models.product",
+        "label": "WarehouseBase",
+        "importPath": "app.models.warehouse",
+        "description": "app.models.warehouse",
         "isExtraImport": true,
-        "detail": "app.models.product",
+        "detail": "app.models.warehouse",
         "documentation": {}
     },
     {
-        "label": "SalesmanBase",
-        "importPath": "app.models.salesman",
-        "description": "app.models.salesman",
+        "label": "ShipmentBase",
+        "importPath": "app.models.shipment",
+        "description": "app.models.shipment",
         "isExtraImport": true,
-        "detail": "app.models.salesman",
+        "detail": "app.models.shipment",
         "documentation": {}
     },
     {
@@ -841,6 +898,102 @@
         "documentation": {}
     },
     {
+        "label": "Column",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "Date",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "Integer",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "String",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "Float",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "Column",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "Date",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "Integer",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "String",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "Float",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "declarative_base",
+        "importPath": "sqlalchemy.ext.declarative",
+        "description": "sqlalchemy.ext.declarative",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.ext.declarative",
+        "documentation": {}
+    },
+    {
+        "label": "declarative_base",
+        "importPath": "sqlalchemy.ext.declarative",
+        "description": "sqlalchemy.ext.declarative",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.ext.declarative",
+        "documentation": {}
+    },
+    {
         "label": "declarative_base",
         "importPath": "sqlalchemy.ext.declarative",
         "description": "sqlalchemy.ext.declarative",
@@ -911,79 +1064,6 @@
         "description": "functools",
         "isExtraImport": true,
         "detail": "functools",
-        "documentation": {}
-    },
-    {
-        "label": "_struct",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "_struct",
-        "description": "_struct",
-        "detail": "_struct",
-        "documentation": {}
-    },
-    {
-        "label": "*",
-        "importPath": "_struct",
-        "description": "_struct",
-        "isExtraImport": true,
-        "detail": "_struct",
-        "documentation": {}
-    },
-    {
-        "label": "_clearcache",
-        "importPath": "_struct",
-        "description": "_struct",
-        "isExtraImport": true,
-        "detail": "_struct",
-        "documentation": {}
-    },
-    {
-        "label": "__doc__",
-        "importPath": "_struct",
-        "description": "_struct",
-        "isExtraImport": true,
-        "detail": "_struct",
-        "documentation": {}
-    },
-    {
-        "label": "security",
-        "importPath": "app.core",
-        "description": "app.core",
-        "isExtraImport": true,
-        "detail": "app.core",
-        "documentation": {}
-    },
-    {
-        "label": "process_create_user",
-        "importPath": "app.crud.customer",
-        "description": "app.crud.customer",
-        "isExtraImport": true,
-        "detail": "app.crud.customer",
-        "documentation": {}
-    },
-    {
-        "label": "process_create_product",
-        "importPath": "app.crud.product",
-        "description": "app.crud.product",
-        "isExtraImport": true,
-        "detail": "app.crud.product",
-        "documentation": {}
-    },
-    {
-        "label": "process_create_salesman",
-        "importPath": "app.crud.salesman",
-        "description": "app.crud.salesman",
-        "isExtraImport": true,
-        "detail": "app.crud.salesman",
-        "documentation": {}
-    },
-    {
-        "label": "CustomerBase",
-        "importPath": "app.models.customer",
-        "description": "app.models.customer",
-        "isExtraImport": true,
-        "detail": "app.models.customer",
         "documentation": {}
     },
     {
@@ -1896,21 +1976,36 @@
         "documentation": {}
     },
     {
+        "label": "*",
+        "importPath": "_struct",
+        "description": "_struct",
+        "isExtraImport": true,
+        "detail": "_struct",
+        "documentation": {}
+    },
+    {
+        "label": "_clearcache",
+        "importPath": "_struct",
+        "description": "_struct",
+        "isExtraImport": true,
+        "detail": "_struct",
+        "documentation": {}
+    },
+    {
+        "label": "__doc__",
+        "importPath": "_struct",
+        "description": "_struct",
+        "isExtraImport": true,
+        "detail": "_struct",
+        "documentation": {}
+    },
+    {
         "label": "shutil",
         "kind": 6,
         "isExtraImport": true,
         "importPath": "shutil",
         "description": "shutil",
         "detail": "shutil",
-        "documentation": {}
-    },
-    {
-        "label": "time",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "time",
-        "description": "time",
-        "detail": "time",
         "documentation": {}
     },
     {
@@ -2341,6 +2436,42 @@
         "documentation": {}
     },
     {
+        "label": "ShipmentBase",
+        "kind": 6,
+        "importPath": "app.models.shipment",
+        "description": "app.models.shipment",
+        "peekOfCode": "class ShipmentBase(Base):\n    __tablename__ = \"shipment\"\n    ShipmentID = Column(Integer, primary_key=True, index=True)\n    ProductID = Column(Integer, nullable=False)\n    WarehouseID = Column(Integer, nullable=False)\n    Quantity = Column(Integer, nullable=False)\n    Status = Column(String, nullable=False)\n    EstimatedArrivalDate = Column(Date)\n    ActualArrivalDate = Column(Date)",
+        "detail": "app.models.shipment",
+        "documentation": {}
+    },
+    {
+        "label": "Base",
+        "kind": 5,
+        "importPath": "app.models.shipment",
+        "description": "app.models.shipment",
+        "peekOfCode": "Base = declarative_base()\nclass ShipmentBase(Base):\n    __tablename__ = \"shipment\"\n    ShipmentID = Column(Integer, primary_key=True, index=True)\n    ProductID = Column(Integer, nullable=False)\n    WarehouseID = Column(Integer, nullable=False)\n    Quantity = Column(Integer, nullable=False)\n    Status = Column(String, nullable=False)\n    EstimatedArrivalDate = Column(Date)\n    ActualArrivalDate = Column(Date)",
+        "detail": "app.models.shipment",
+        "documentation": {}
+    },
+    {
+        "label": "WarehouseBase",
+        "kind": 6,
+        "importPath": "app.models.warehouse",
+        "description": "app.models.warehouse",
+        "peekOfCode": "class WarehouseBase(Base):  \n    __tablename__ = \"warehouse\"\n    wid = Column(Integer, primary_key=True, index=True)\n    name = Column(String, nullable=False)\n    location = Column(String, nullable=False)\n    phone = Column(String, nullable=False)\n    capacity_volume = Column(Integer, nullable=False)\n    capacity_weight = Column(Integer, nullable=False)",
+        "detail": "app.models.warehouse",
+        "documentation": {}
+    },
+    {
+        "label": "Base",
+        "kind": 5,
+        "importPath": "app.models.warehouse",
+        "description": "app.models.warehouse",
+        "peekOfCode": "Base = declarative_base()\nclass WarehouseBase(Base):  \n    __tablename__ = \"warehouse\"\n    wid = Column(Integer, primary_key=True, index=True)\n    name = Column(String, nullable=False)\n    location = Column(String, nullable=False)\n    phone = Column(String, nullable=False)\n    capacity_volume = Column(Integer, nullable=False)\n    capacity_weight = Column(Integer, nullable=False)",
+        "detail": "app.models.warehouse",
+        "documentation": {}
+    },
+    {
         "label": "CustomerCreate",
         "kind": 6,
         "importPath": "app.main",
@@ -2363,7 +2494,7 @@
         "kind": 6,
         "importPath": "app.main",
         "description": "app.main",
-        "peekOfCode": "class Product_Create(BaseModel):\n    sid:int\n    pname:str\n    pdescription:str\n    price:float\n    discount:float\n    status:str\n    wid:int\n    sid:int\n    model_config = ConfigDict(",
+        "peekOfCode": "class Product_Create(BaseModel):\n    sid:int\n    pname:str\n    pdescription:str\n    price:float\n    cid:int\n    discount:float\n    status:str\n    wid:int\n    stock_quantity:int",
         "detail": "app.main",
         "documentation": {}
     },
