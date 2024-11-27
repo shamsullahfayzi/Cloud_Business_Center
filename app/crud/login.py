@@ -17,7 +17,7 @@ class TokenResponse(BaseModel):
     token_type: str
     user_data: Union[UserResponse, SalesmanResponse]
 
-async def process_login(db: Session, login_data: LoginRequest) -> Optional[TokenResponse]:
+async def process_login(db: Session, login_data: LoginRequest,res:Response) -> Optional[TokenResponse]:
     """
     Process login request and return access token if successful
     """
@@ -35,7 +35,14 @@ async def process_login(db: Session, login_data: LoginRequest) -> Optional[Token
             "exp": datetime.utcnow() + timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)  # Expiration
         }
         create_token = jwt.encode(token_data,SECRET_KEY,algorithm=ALGORITHM)
-        Response.set_cookie(key="access_token",value=create_token,httponly=True,secure=True,samesite="strict",max_age=ACCESS_TOKEN_EXPIRE_MINUTES*60)
+        res.set_cookie(
+            
+            key="access_token",
+            value=create_token,
+            httponly=True,secure=True,
+            samesite="strict",
+            max_age=ACCESS_TOKEN_EXPIRE_MINUTES*60
+            )
         return TokenResponse(
             access_token="",
             token_type="",
@@ -58,7 +65,8 @@ async def process_login(db: Session, login_data: LoginRequest) -> Optional[Token
             "exp": datetime.utcnow() + timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)  # Expiration
         }
         create_token = jwt.encode(token_data,SECRET_KEY,algorithm=ALGORITHM)
-        
+        res.set_cookie(key="access_token",value=create_token,httponly=True,secure=False,samesite="strict",max_age=ACCESS_TOKEN_EXPIRE_MINUTES*60)
+
         return TokenResponse(
             access_token="",
             token_type="",

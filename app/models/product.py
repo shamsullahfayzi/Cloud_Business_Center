@@ -15,12 +15,14 @@ class ProductBase(Base):
     price = Column(Float, nullable=False)
     stock_quantity = Column(Integer, nullable=False)
     discount = Column(Float,nullable=True)
-    status = Column(Float,nullable=False)
+    status = Column(Integer, nullable=False)
     wid = Column(Float,nullable=False)
     cid = Column(Float,nullable=False)
     volumeperunit = Column(Float,nullable=False)
     weightperunit = Column(Float,nullable=False)
-    created_at = Column(Date),
+    actualArrivalDate = Column(Date,nullable=True)
+    estimatedArrivalDate = Column(Date,nullable=False)
+    created_at = Column(Date)
     updated_at = (Column(Date))
 
 class ProductResponse(BaseModel):

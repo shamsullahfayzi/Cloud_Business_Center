@@ -1,7 +1,8 @@
-# main.py
-from fastapi import FastAPI, Depends, HTTPException
+from fastapi import FastAPI, Depends, HTTPException,Response,Request
 from pydantic import BaseModel, ConfigDict, EmailStr
 from sqlalchemy.orm import Session
+
+from app.models.response_product_create import Response_Product_Create
 
 from .crud.customer import process_create_user
 from .crud.product import process_create_product
@@ -12,10 +13,11 @@ from .models.product import ProductBase
 from .db import database
 from .crud.login import process_login, TokenResponse
 from .models.login_model import LoginRequest
-from middleware import middleware
-ROLE_CUSTOMER = "customer"
-ROLE_SALESMAN = "salesman"
-ROLE_ADMIN = "admin"
+
+from .middleware.middleware import require_roles
+ROLE_CUSTOMER = 3
+ROLE_SALESMAN = 2
+ROLE_ADMIN = 1
 app = FastAPI()
 
 class CustomerCreate(BaseModel):
@@ -94,10 +96,11 @@ async def salesman_new_endpoint(request:SalesmanCreate,db:Session = Depends(data
 @app.post("/login/", response_model=TokenResponse)
 async def login_endpoint(
     request: LoginRequest,
+    res:Response,
     db: Session = Depends(database.get_db)
 ): 
     try:
-        result = await process_login(db=db, login_data=request)
+        result = await process_login(db=db, login_data=request,res=res)
         if result:
             return result
         raise HTTPException(status_code=401, detail="Invalid credentials")
@@ -125,31 +128,28 @@ class Product_Create(BaseModel):
     )
 
 
-class Response_Product_Create(BaseModel):
-    success:bool
-    message:str
-    data:dict | None = None
-    error:dict | None = None
-
 @app.post("/products/new/",response_model=Response_Product_Create)
-@middleware.require_roles([ROLE_SALESMAN])
-async def new_product_endpoint(request:Product_Create,db:Session = Depends(database.get_db)):
+@require_roles([ROLE_SALESMAN])
+async def new_product_endpoint(request:Request,product:Product_Create,db:Session = Depends(database.get_db)):
     try:
         # create instance of base model
         pb = ProductBase(
-            sid=request.sid,
-            pname=request.pname,
-            pdescription=request.pdescription,
-            price=request.price,
-            discount=request.discount,
-            status=request.status,
-            wid=request.wid,
-            cid=request.cid,
-            volumeperunit=request.volumeperunit,
-            weightperunit=request.weightperunit,
-            stock_quantity=request.stock_quantity
+            sid=product.sid,
+            pname=product.pname,
+            pdescription=product.pdescription,
+            price=product.price,
+            discount=product.discount,
+            status=product.status,
+            wid=product.wid,
+            cid=product.cid,
+            volumeperunit=product.volumeperunit,
+            weightperunit=product.weightperunit,
+            stock_quantity=product.stock_quantity,
+            estimatedArrivalDate = product.estimatedArrivalDate,
+            actualArrivalDate = "",
+            
         )
-        product =  await process_create_product(db,pb,request.estimatedArrivalDate,request.actualArrivalDate)
+        product =  await process_create_product(db,pb)
         
         return product if product.success else HTTPException(status_code=500,detail={product.message,product.error})
     except Exception as e:

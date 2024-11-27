@@ -48,6 +48,22 @@
         "documentation": {}
     },
     {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "date",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
         "label": "date",
         "importPath": "datetime",
         "description": "datetime",
@@ -112,6 +128,14 @@
         "documentation": {}
     },
     {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
         "label": "Generator",
         "importPath": "typing",
         "description": "typing",
@@ -121,14 +145,6 @@
     },
     {
         "label": "List",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "Callable",
         "importPath": "typing",
         "description": "typing",
         "isExtraImport": true,
@@ -433,6 +449,14 @@
         "documentation": {}
     },
     {
+        "label": "HTTPException",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
         "label": "Request",
         "importPath": "fastapi",
         "description": "fastapi",
@@ -470,6 +494,30 @@
         "description": "fastapi",
         "isExtraImport": true,
         "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "Response",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "Request",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "Session",
+        "importPath": "sqlalchemy.orm",
+        "description": "sqlalchemy.orm",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.orm",
         "documentation": {}
     },
     {
@@ -665,6 +713,30 @@
         "documentation": {}
     },
     {
+        "label": "ConfigDict",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "EmailStr",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "BaseModel",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
         "label": "EmailStr",
         "importPath": "pydantic",
         "description": "pydantic",
@@ -746,19 +818,27 @@
         "documentation": {}
     },
     {
-        "label": "Response_Product_Create",
-        "importPath": "app.main",
-        "description": "app.main",
-        "isExtraImport": true,
-        "detail": "app.main",
-        "documentation": {}
-    },
-    {
         "label": "ProductBase",
         "importPath": "app.models.product",
         "description": "app.models.product",
         "isExtraImport": true,
         "detail": "app.models.product",
+        "documentation": {}
+    },
+    {
+        "label": "Response_Product_Create",
+        "importPath": "app.models.response_product_create",
+        "description": "app.models.response_product_create",
+        "isExtraImport": true,
+        "detail": "app.models.response_product_create",
+        "documentation": {}
+    },
+    {
+        "label": "Response_Product_Create",
+        "importPath": "app.models.response_product_create",
+        "description": "app.models.response_product_create",
+        "isExtraImport": true,
+        "detail": "app.models.response_product_create",
         "documentation": {}
     },
     {
@@ -775,6 +855,14 @@
         "description": "app.models.shipment",
         "isExtraImport": true,
         "detail": "app.models.shipment",
+        "documentation": {}
+    },
+    {
+        "label": "SQLAlchemyError",
+        "importPath": "sqlalchemy.exc",
+        "description": "sqlalchemy.exc",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.exc",
         "documentation": {}
     },
     {
@@ -1034,22 +1122,6 @@
         "documentation": {}
     },
     {
-        "label": "HTTPBearer",
-        "importPath": "fastapi.security",
-        "description": "fastapi.security",
-        "isExtraImport": true,
-        "detail": "fastapi.security",
-        "documentation": {}
-    },
-    {
-        "label": "HTTPAuthorizationCredentials",
-        "importPath": "fastapi.security",
-        "description": "fastapi.security",
-        "isExtraImport": true,
-        "detail": "fastapi.security",
-        "documentation": {}
-    },
-    {
         "label": "functools",
         "kind": 6,
         "isExtraImport": true,
@@ -1064,14 +1136,6 @@
         "description": "functools",
         "isExtraImport": true,
         "detail": "functools",
-        "documentation": {}
-    },
-    {
-        "label": "middleware",
-        "importPath": "middleware",
-        "description": "middleware",
-        "isExtraImport": true,
-        "detail": "middleware",
         "documentation": {}
     },
     {
@@ -2215,7 +2279,7 @@
         "kind": 6,
         "importPath": "app.crud.login",
         "description": "app.crud.login",
-        "peekOfCode": "class TokenResponse(BaseModel):\n    access_token: str\n    token_type: str\n    user_data: Union[UserResponse, SalesmanResponse]\nasync def process_login(db: Session, login_data: LoginRequest) -> Optional[TokenResponse]:\n    \"\"\"\n    Process login request and return access token if successful\n    \"\"\"\n    if login_data.role == 3:  # customer\n        user = db.query(CustomerBase).filter(",
+        "peekOfCode": "class TokenResponse(BaseModel):\n    access_token: str\n    token_type: str\n    user_data: Union[UserResponse, SalesmanResponse]\nasync def process_login(db: Session, login_data: LoginRequest,res:Response) -> Optional[TokenResponse]:\n    \"\"\"\n    Process login request and return access token if successful\n    \"\"\"\n    if login_data.role == 3:  # customer\n        user = db.query(CustomerBase).filter(",
         "detail": "app.crud.login",
         "documentation": {}
     },
@@ -2224,7 +2288,7 @@
         "kind": 5,
         "importPath": "app.crud.login",
         "description": "app.crud.login",
-        "peekOfCode": "ACCESS_TOKEN_EXPIRE_MINUTES = 120\nSECRET_KEY = os.getenv(\"SECRET_KEY\", \"your-secret-key\")\nALGORITHM = \"HS256\"\nclass TokenResponse(BaseModel):\n    access_token: str\n    token_type: str\n    user_data: Union[UserResponse, SalesmanResponse]\nasync def process_login(db: Session, login_data: LoginRequest) -> Optional[TokenResponse]:\n    \"\"\"\n    Process login request and return access token if successful",
+        "peekOfCode": "ACCESS_TOKEN_EXPIRE_MINUTES = 120\nSECRET_KEY = os.getenv(\"SECRET_KEY\", \"your-secret-key\")\nALGORITHM = \"HS256\"\nclass TokenResponse(BaseModel):\n    access_token: str\n    token_type: str\n    user_data: Union[UserResponse, SalesmanResponse]\nasync def process_login(db: Session, login_data: LoginRequest,res:Response) -> Optional[TokenResponse]:\n    \"\"\"\n    Process login request and return access token if successful",
         "detail": "app.crud.login",
         "documentation": {}
     },
@@ -2233,7 +2297,7 @@
         "kind": 5,
         "importPath": "app.crud.login",
         "description": "app.crud.login",
-        "peekOfCode": "SECRET_KEY = os.getenv(\"SECRET_KEY\", \"your-secret-key\")\nALGORITHM = \"HS256\"\nclass TokenResponse(BaseModel):\n    access_token: str\n    token_type: str\n    user_data: Union[UserResponse, SalesmanResponse]\nasync def process_login(db: Session, login_data: LoginRequest) -> Optional[TokenResponse]:\n    \"\"\"\n    Process login request and return access token if successful\n    \"\"\"",
+        "peekOfCode": "SECRET_KEY = os.getenv(\"SECRET_KEY\", \"your-secret-key\")\nALGORITHM = \"HS256\"\nclass TokenResponse(BaseModel):\n    access_token: str\n    token_type: str\n    user_data: Union[UserResponse, SalesmanResponse]\nasync def process_login(db: Session, login_data: LoginRequest,res:Response) -> Optional[TokenResponse]:\n    \"\"\"\n    Process login request and return access token if successful\n    \"\"\"",
         "detail": "app.crud.login",
         "documentation": {}
     },
@@ -2242,7 +2306,7 @@
         "kind": 5,
         "importPath": "app.crud.login",
         "description": "app.crud.login",
-        "peekOfCode": "ALGORITHM = \"HS256\"\nclass TokenResponse(BaseModel):\n    access_token: str\n    token_type: str\n    user_data: Union[UserResponse, SalesmanResponse]\nasync def process_login(db: Session, login_data: LoginRequest) -> Optional[TokenResponse]:\n    \"\"\"\n    Process login request and return access token if successful\n    \"\"\"\n    if login_data.role == 3:  # customer",
+        "peekOfCode": "ALGORITHM = \"HS256\"\nclass TokenResponse(BaseModel):\n    access_token: str\n    token_type: str\n    user_data: Union[UserResponse, SalesmanResponse]\nasync def process_login(db: Session, login_data: LoginRequest,res:Response) -> Optional[TokenResponse]:\n    \"\"\"\n    Process login request and return access token if successful\n    \"\"\"\n    if login_data.role == 3:  # customer",
         "detail": "app.crud.login",
         "documentation": {}
     },
@@ -2319,20 +2383,11 @@
         "documentation": {}
     },
     {
-        "label": "RoleChecker",
-        "kind": 6,
-        "importPath": "app.middleware.middleware",
-        "description": "app.middleware.middleware",
-        "peekOfCode": "class RoleChecker:\n    def __init__(self, allowed_roles: List[str]):\n        self.allowed_roles = allowed_roles\n    def __call__(self, request: Request):\n        credentials = security(request)\n        payload = validate_token(credentials)\n        user_role = payload.get(\"role\")\n        if user_role not in self.allowed_roles:\n            raise HTTPException(\n                status_code=403, detail=f\"Operation not permitted for role {user_role}\"",
-        "detail": "app.middleware.middleware",
-        "documentation": {}
-    },
-    {
-        "label": "validate_token",
+        "label": "validate_cookie_token",
         "kind": 2,
         "importPath": "app.middleware.middleware",
         "description": "app.middleware.middleware",
-        "peekOfCode": "def validate_token(credentials: HTTPAuthorizationCredentials) -> dict:\n    \"\"\"\n    Validate the JWT token and return the decoded payload\n    \"\"\"\n    try:\n        token = credentials.credentials\n        payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])\n        if payload is None:\n            raise HTTPException(status_code=401, detail=\"Invalid authentication token\")\n        return payload",
+        "peekOfCode": "def validate_cookie_token(request: Request):\n    print(request)\n    print(request.cookies)\n    token = request.cookies.get(\"access_token\")\n    if not token:\n        raise HTTPException(status_code=401, detail=\"No token\")\n    try:\n        return jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])\n    except JWTError:\n        raise HTTPException(status_code=401, detail=\"Invalid token\")",
         "detail": "app.middleware.middleware",
         "documentation": {}
     },
@@ -2341,16 +2396,7 @@
         "kind": 2,
         "importPath": "app.middleware.middleware",
         "description": "app.middleware.middleware",
-        "peekOfCode": "def require_roles(allowed_roles: List[str]) -> Callable:\n    \"\"\"\n    Decorator for endpoints that require specific roles\n    \"\"\"\n    def decorator(func: Callable) -> Callable:\n        @wraps(func)\n        async def wrapper(*args, **kwargs):\n            request = kwargs.get(\"request\")\n            if not request:\n                for arg in args:",
-        "detail": "app.middleware.middleware",
-        "documentation": {}
-    },
-    {
-        "label": "security",
-        "kind": 5,
-        "importPath": "app.middleware.middleware",
-        "description": "app.middleware.middleware",
-        "peekOfCode": "security = HTTPBearer()\ndef validate_token(credentials: HTTPAuthorizationCredentials) -> dict:\n    \"\"\"\n    Validate the JWT token and return the decoded payload\n    \"\"\"\n    try:\n        token = credentials.credentials\n        payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])\n        if payload is None:\n            raise HTTPException(status_code=401, detail=\"Invalid authentication token\")",
+        "peekOfCode": "def require_roles(allowed_roles: List[int]):\n    def decorator(func):\n        @wraps(func)\n        async def wrapper(*args, **kwargs):\n            request = next(\n                (arg for arg in args if isinstance(arg, Request)), kwargs.get(\"request\")\n            )\n            payload = validate_cookie_token(request)\n            if payload.get(\"role\") not in allowed_roles:\n                raise HTTPException(status_code=403, detail=\"Unauthorized\")",
         "detail": "app.middleware.middleware",
         "documentation": {}
     },
@@ -2395,7 +2441,7 @@
         "kind": 6,
         "importPath": "app.models.product",
         "description": "app.models.product",
-        "peekOfCode": "class ProductBase(Base):\n    __tablename__ = \"product\"\n    pid = Column(Integer, primary_key=True, index=True)\n    sid = Column(Integer,nullable=False)\n    pname = Column(String, nullable=False)\n    pdescription = Column(String,nullable=False)\n    price = Column(Float, nullable=False)\n    stock_quantity = Column(Integer, nullable=False)\n    discount = Column(Float,nullable=True)\n    status = Column(Float,nullable=False)",
+        "peekOfCode": "class ProductBase(Base):\n    __tablename__ = \"product\"\n    pid = Column(Integer, primary_key=True, index=True)\n    sid = Column(Integer,nullable=False)\n    pname = Column(String, nullable=False)\n    pdescription = Column(String,nullable=False)\n    price = Column(Float, nullable=False)\n    stock_quantity = Column(Integer, nullable=False)\n    discount = Column(Float,nullable=True)\n    status = Column(Integer, nullable=False)",
         "detail": "app.models.product",
         "documentation": {}
     },
@@ -2415,6 +2461,15 @@
         "description": "app.models.product",
         "peekOfCode": "Base = declarative_base()\nclass ProductBase(Base):\n    __tablename__ = \"product\"\n    pid = Column(Integer, primary_key=True, index=True)\n    sid = Column(Integer,nullable=False)\n    pname = Column(String, nullable=False)\n    pdescription = Column(String,nullable=False)\n    price = Column(Float, nullable=False)\n    stock_quantity = Column(Integer, nullable=False)\n    discount = Column(Float,nullable=True)",
         "detail": "app.models.product",
+        "documentation": {}
+    },
+    {
+        "label": "Response_Product_Create",
+        "kind": 6,
+        "importPath": "app.models.response_product_create",
+        "description": "app.models.response_product_create",
+        "peekOfCode": "class Response_Product_Create(BaseModel):\n    success: bool\n    message: str\n    data: dict | None = None\n    error: dict | None = None",
+        "detail": "app.models.response_product_create",
         "documentation": {}
     },
     {
@@ -2499,20 +2554,11 @@
         "documentation": {}
     },
     {
-        "label": "Response_Product_Create",
-        "kind": 6,
-        "importPath": "app.main",
-        "description": "app.main",
-        "peekOfCode": "class Response_Product_Create(BaseModel):\n    success:bool\n    message:str\n    data:dict | None = None\n    error:dict | None = None\n@app.post(\"/products/new/\",response_model=Response_Product_Create)\n@middleware.require_roles([ROLE_SALESMAN])\nasync def new_product_endpoint(request:Product_Create,db:Session = Depends(database.get_db)):\n    try:\n        # create instance of base model",
-        "detail": "app.main",
-        "documentation": {}
-    },
-    {
         "label": "ROLE_CUSTOMER",
         "kind": 5,
         "importPath": "app.main",
         "description": "app.main",
-        "peekOfCode": "ROLE_CUSTOMER = \"customer\"\nROLE_SALESMAN = \"salesman\"\nROLE_ADMIN = \"admin\"\napp = FastAPI()\nclass CustomerCreate(BaseModel):\n    uname: str\n    lname: str\n    email: EmailStr\n    password: str\n    address: str | None = None",
+        "peekOfCode": "ROLE_CUSTOMER = 3\nROLE_SALESMAN = 2\nROLE_ADMIN = 1\napp = FastAPI()\nclass CustomerCreate(BaseModel):\n    uname: str\n    lname: str\n    email: EmailStr\n    password: str\n    address: str | None = None",
         "detail": "app.main",
         "documentation": {}
     },
@@ -2521,7 +2567,7 @@
         "kind": 5,
         "importPath": "app.main",
         "description": "app.main",
-        "peekOfCode": "ROLE_SALESMAN = \"salesman\"\nROLE_ADMIN = \"admin\"\napp = FastAPI()\nclass CustomerCreate(BaseModel):\n    uname: str\n    lname: str\n    email: EmailStr\n    password: str\n    address: str | None = None\n    phone: str",
+        "peekOfCode": "ROLE_SALESMAN = 2\nROLE_ADMIN = 1\napp = FastAPI()\nclass CustomerCreate(BaseModel):\n    uname: str\n    lname: str\n    email: EmailStr\n    password: str\n    address: str | None = None\n    phone: str",
         "detail": "app.main",
         "documentation": {}
     },
@@ -2530,7 +2576,7 @@
         "kind": 5,
         "importPath": "app.main",
         "description": "app.main",
-        "peekOfCode": "ROLE_ADMIN = \"admin\"\napp = FastAPI()\nclass CustomerCreate(BaseModel):\n    uname: str\n    lname: str\n    email: EmailStr\n    password: str\n    address: str | None = None\n    phone: str\n    rid: int | None = None",
+        "peekOfCode": "ROLE_ADMIN = 1\napp = FastAPI()\nclass CustomerCreate(BaseModel):\n    uname: str\n    lname: str\n    email: EmailStr\n    password: str\n    address: str | None = None\n    phone: str\n    rid: int | None = None",
         "detail": "app.main",
         "documentation": {}
     },
