@@ -2,8 +2,10 @@ from fastapi import FastAPI, Depends, HTTPException,Response,Request
 from pydantic import BaseModel, ConfigDict, EmailStr
 from sqlalchemy.orm import Session
 
+from app.models.add_to_cart import Add_To_Cart_Create
 from app.models.response_product_create import Response_Product_Create
 
+import typing
 from .crud.customer import process_create_user
 from .crud.product import process_create_product
 from .crud.salesman import process_create_salesman
@@ -13,7 +15,7 @@ from .models.product import ProductBase
 from .db import database
 from .crud.login import process_login, TokenResponse
 from .models.login_model import LoginRequest
-
+from typing import List
 from .middleware.middleware import require_roles
 ROLE_CUSTOMER = 3
 ROLE_SALESMAN = 2
@@ -150,7 +152,52 @@ async def new_product_endpoint(request:Request,product:Product_Create,db:Session
             
         )
         result =  await process_create_product(db,pb)
-        
+
         return result if result.success else HTTPException(status_code=500,detail={result.message,})
     except Exception as e:
         raise HTTPException(status_code=500,detail=str(e))
+
+
+    
+@app.post("/cart/new/", response_model=Response_Product_Create)
+@require_roles([ROLE_CUSTOMER])
+async def cart_new_endpoint(
+    request: Request, cart: Add_To_Cart_Create, db: Session = Depends(database.get_db)
+):
+    try:
+        # customer id 
+        cid = request.state.user["id"]
+        existingCart = 
+        
+        # check if we want to create a cart and these new items to it  or we have a Active cart just simply push these new products to it
+         
+        # create instance of base model
+        pb = ProductBase(
+            sid=product.sid,
+            pname=product.pname,
+            pdescription=product.pdescription,
+            price=product.price,
+            discount=product.discount,
+            status=product.status,
+            wid=product.wid,
+            cid=product.cid,
+            volumeperunit=product.volumeperunit,
+            weightperunit=product.weightperunit,
+            stock_quantity=product.stock_quantity,
+            estimatedArrivalDate=product.estimatedArrivalDate,
+            actualArrivalDate="",
+        )
+        result = await process_create_product(db, pb)
+
+        return (
+            result
+            if result.success
+            else HTTPException(
+                status_code=500,
+                detail={
+                    result.message,
+                },
+            )
+        )
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))

@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #6A4C93;      /* Deep Purple */
+  --secondary: #1982C4;    /* Bright Blue */
+  --accent: #FF924C;       /* Warm Orange */
+  --background: #FFFFFF;   /* Pure White */
+  --text: #2F2F2F;         /* Charcoal */
+  --success: #8AC926;      /* Lime Green */
+  --danger: #FF585D;       /* Soft Red */
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}
