@@ -16,6 +16,14 @@
         "documentation": {}
     },
     {
+        "label": "date",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
         "label": "datetime",
         "importPath": "datetime",
         "description": "datetime",
@@ -32,22 +40,6 @@
         "documentation": {}
     },
     {
-        "label": "date",
-        "importPath": "datetime",
-        "description": "datetime",
-        "isExtraImport": true,
-        "detail": "datetime",
-        "documentation": {}
-    },
-    {
-        "label": "datetime",
-        "importPath": "datetime",
-        "description": "datetime",
-        "isExtraImport": true,
-        "detail": "datetime",
-        "documentation": {}
-    },
-    {
         "label": "datetime",
         "importPath": "datetime",
         "description": "datetime",
@@ -69,6 +61,14 @@
         "description": "datetime",
         "isExtraImport": true,
         "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
         "documentation": {}
     },
     {
@@ -105,14 +105,6 @@
     },
     {
         "label": "Union",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "Optional",
         "importPath": "typing",
         "description": "typing",
         "isExtraImport": true,
@@ -425,7 +417,7 @@
         "documentation": {}
     },
     {
-        "label": "Response",
+        "label": "HTTPException",
         "importPath": "fastapi",
         "description": "fastapi",
         "isExtraImport": true,
@@ -433,7 +425,7 @@
         "documentation": {}
     },
     {
-        "label": "HTTPException",
+        "label": "Response",
         "importPath": "fastapi",
         "description": "fastapi",
         "isExtraImport": true,
@@ -617,6 +609,30 @@
         "documentation": {}
     },
     {
+        "label": "TokenResponse",
+        "importPath": "app.crud.login",
+        "description": "app.crud.login",
+        "isExtraImport": true,
+        "detail": "app.crud.login",
+        "documentation": {}
+    },
+    {
+        "label": "process_login",
+        "importPath": "app.crud.login",
+        "description": "app.crud.login",
+        "isExtraImport": true,
+        "detail": "app.crud.login",
+        "documentation": {}
+    },
+    {
+        "label": "LoginRequest",
+        "importPath": "app.models.login_model",
+        "description": "app.models.login_model",
+        "isExtraImport": true,
+        "detail": "app.models.login_model",
+        "documentation": {}
+    },
+    {
         "label": "LoginRequest",
         "importPath": "app.models.login_model",
         "description": "app.models.login_model",
@@ -633,6 +649,22 @@
         "documentation": {}
     },
     {
+        "label": "SalesmanBase",
+        "importPath": "app.models.salesman",
+        "description": "app.models.salesman",
+        "isExtraImport": true,
+        "detail": "app.models.salesman",
+        "documentation": {}
+    },
+    {
+        "label": "SalesmanBase",
+        "importPath": "app.models.salesman",
+        "description": "app.models.salesman",
+        "isExtraImport": true,
+        "detail": "app.models.salesman",
+        "documentation": {}
+    },
+    {
         "label": "BaseModel",
         "importPath": "pydantic",
         "description": "pydantic",
@@ -658,70 +690,6 @@
     },
     {
         "label": "ConfigDict",
-        "importPath": "pydantic",
-        "description": "pydantic",
-        "isExtraImport": true,
-        "detail": "pydantic",
-        "documentation": {}
-    },
-    {
-        "label": "BaseModel",
-        "importPath": "pydantic",
-        "description": "pydantic",
-        "isExtraImport": true,
-        "detail": "pydantic",
-        "documentation": {}
-    },
-    {
-        "label": "EmailStr",
-        "importPath": "pydantic",
-        "description": "pydantic",
-        "isExtraImport": true,
-        "detail": "pydantic",
-        "documentation": {}
-    },
-    {
-        "label": "ConfigDict",
-        "importPath": "pydantic",
-        "description": "pydantic",
-        "isExtraImport": true,
-        "detail": "pydantic",
-        "documentation": {}
-    },
-    {
-        "label": "BaseModel",
-        "importPath": "pydantic",
-        "description": "pydantic",
-        "isExtraImport": true,
-        "detail": "pydantic",
-        "documentation": {}
-    },
-    {
-        "label": "ConfigDict",
-        "importPath": "pydantic",
-        "description": "pydantic",
-        "isExtraImport": true,
-        "detail": "pydantic",
-        "documentation": {}
-    },
-    {
-        "label": "BaseModel",
-        "importPath": "pydantic",
-        "description": "pydantic",
-        "isExtraImport": true,
-        "detail": "pydantic",
-        "documentation": {}
-    },
-    {
-        "label": "ConfigDict",
-        "importPath": "pydantic",
-        "description": "pydantic",
-        "isExtraImport": true,
-        "detail": "pydantic",
-        "documentation": {}
-    },
-    {
-        "label": "EmailStr",
         "importPath": "pydantic",
         "description": "pydantic",
         "isExtraImport": true,
@@ -785,6 +753,70 @@
         "documentation": {}
     },
     {
+        "label": "EmailStr",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "BaseModel",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "EmailStr",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "ConfigDict",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "BaseModel",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "ConfigDict",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "BaseModel",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "ConfigDict",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
         "label": "BaseModel",
         "importPath": "pydantic",
         "description": "pydantic",
@@ -809,12 +841,27 @@
         "documentation": {}
     },
     {
-        "label": "time",
-        "kind": 6,
+        "label": "SQLAlchemyError",
+        "importPath": "sqlalchemy.exc",
+        "description": "sqlalchemy.exc",
         "isExtraImport": true,
-        "importPath": "time",
-        "description": "time",
-        "detail": "time",
+        "detail": "sqlalchemy.exc",
+        "documentation": {}
+    },
+    {
+        "label": "ProductBase",
+        "importPath": "app.models.product",
+        "description": "app.models.product",
+        "isExtraImport": true,
+        "detail": "app.models.product",
+        "documentation": {}
+    },
+    {
+        "label": "ProductResponse",
+        "importPath": "app.models.product",
+        "description": "app.models.product",
+        "isExtraImport": true,
+        "detail": "app.models.product",
         "documentation": {}
     },
     {
@@ -842,14 +889,6 @@
         "documentation": {}
     },
     {
-        "label": "WarehouseBase",
-        "importPath": "app.models.warehouse",
-        "description": "app.models.warehouse",
-        "isExtraImport": true,
-        "detail": "app.models.warehouse",
-        "documentation": {}
-    },
-    {
         "label": "ShipmentBase",
         "importPath": "app.models.shipment",
         "description": "app.models.shipment",
@@ -858,19 +897,11 @@
         "documentation": {}
     },
     {
-        "label": "SQLAlchemyError",
-        "importPath": "sqlalchemy.exc",
-        "description": "sqlalchemy.exc",
+        "label": "WarehouseBase",
+        "importPath": "app.models.warehouse",
+        "description": "app.models.warehouse",
         "isExtraImport": true,
-        "detail": "sqlalchemy.exc",
-        "documentation": {}
-    },
-    {
-        "label": "SalesmanBase",
-        "importPath": "app.models.salesman",
-        "description": "app.models.salesman",
-        "isExtraImport": true,
-        "detail": "app.models.salesman",
+        "detail": "app.models.warehouse",
         "documentation": {}
     },
     {
@@ -1136,6 +1167,14 @@
         "description": "functools",
         "isExtraImport": true,
         "detail": "functools",
+        "documentation": {}
+    },
+    {
+        "label": "error",
+        "importPath": "pycharm_venv.Lib.re._constants",
+        "description": "pycharm_venv.Lib.re._constants",
+        "isExtraImport": true,
+        "detail": "pycharm_venv.Lib.re._constants",
         "documentation": {}
     },
     {
@@ -2073,6 +2112,15 @@
         "documentation": {}
     },
     {
+        "label": "time",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "time",
+        "description": "time",
+        "detail": "time",
+        "documentation": {}
+    },
+    {
         "label": "copy",
         "kind": 6,
         "isExtraImport": true,
@@ -2468,7 +2516,7 @@
         "kind": 6,
         "importPath": "app.models.response_product_create",
         "description": "app.models.response_product_create",
-        "peekOfCode": "class Response_Product_Create(BaseModel):\n    success: bool\n    message: str\n    data: dict | None = None\n    error: dict | None = None",
+        "peekOfCode": "class Response_Product_Create(BaseModel):\n    success: bool\n    message: str\n    # product: ProductBase | None = None\n    # error:dict | None = None\n    model_config = ConfigDict(\n        from_attributes=True,\n        arbitrary_types_allowed=True\n    )",
         "detail": "app.models.response_product_create",
         "documentation": {}
     },

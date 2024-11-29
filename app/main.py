@@ -149,8 +149,8 @@ async def new_product_endpoint(request:Request,product:Product_Create,db:Session
             actualArrivalDate = "",
             
         )
-        product =  await process_create_product(db,pb)
+        result =  await process_create_product(db,pb)
         
-        return product if product.success else HTTPException(status_code=500,detail={product.message,product.error})
+        return result if result.success else HTTPException(status_code=500,detail={result.message,})
     except Exception as e:
         raise HTTPException(status_code=500,detail=str(e))

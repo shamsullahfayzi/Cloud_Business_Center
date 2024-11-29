@@ -1,13 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ec017947-7b85-498e-baed-763d0b819d89" name="Default Changelist" comment="" />
+    <list default="true" id="ec017947-7b85-498e-baed-763d0b819d89" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.vscode/PythonImportHelper-v2-Completion.json" beforeDir="false" afterPath="$PROJECT_DIR$/.vscode/PythonImportHelper-v2-Completion.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/crud/product.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/crud/product.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/response_product_create.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/response_product_create.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="2pCvgh5hXaVhNwoOHYUqt1dZ35Z" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -30,6 +39,7 @@
       <option name="presentableId" value="Default" />
       <updated>1732282984920</updated>
       <workItem from="1732282988156" duration="3600000" />
+      <workItem from="1732817116103" duration="231000" />
     </task>
     <servers />
   </component>
@@ -37,10 +47,18 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="538" y="162" width="916" height="708" key="SettingsEditor" timestamp="1732295042716">
+    <state x="775" y="270" key="FileChooserDialogImpl" timestamp="1732817286469">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state x="775" y="270" key="FileChooserDialogImpl/0.0.1920.1032@0.0.1920.1032" timestamp="1732817286469" />
+    <state x="538" y="162" width="916" height="708" key="SettingsEditor" timestamp="1732817334703">
       <screen x="0" y="0" width="1920" height="1032" />
     </state>
     <state x="277" y="51" key="SettingsEditor/0.0.1536.816@0.0.1536.816" timestamp="1732293693863" />
-    <state x="538" y="162" width="916" height="708" key="SettingsEditor/0.0.1920.1032@0.0.1920.1032" timestamp="1732295042716" />
+    <state x="538" y="162" width="916" height="708" key="SettingsEditor/0.0.1920.1032@0.0.1920.1032" timestamp="1732817334703" />
+    <state x="661" y="339" key="com.intellij.ide.util.TipDialog" timestamp="1732817228280">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state x="661" y="339" key="com.intellij.ide.util.TipDialog/0.0.1920.1032@0.0.1920.1032" timestamp="1732817228280" />
   </component>
 </project>

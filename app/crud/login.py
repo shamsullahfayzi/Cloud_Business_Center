@@ -32,7 +32,8 @@ async def process_login(db: Session, login_data: LoginRequest,res:Response) -> O
         token_data = {
             "sub":login_data.email,
             "role":login_data.role,
-            "exp": datetime.utcnow() + timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)  # Expiration
+            "exp": datetime.utcnow() + timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES),  # Expiration
+            "id":user.uid
         }
         create_token = jwt.encode(token_data,SECRET_KEY,algorithm=ALGORITHM)
         res.set_cookie(
@@ -62,7 +63,9 @@ async def process_login(db: Session, login_data: LoginRequest,res:Response) -> O
         token_data = {
             "sub":login_data.email,
             "role":login_data.role,
-            "exp": datetime.utcnow() + timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)  # Expiration
+            "exp": datetime.utcnow() + timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES), # Expiration
+            "id":salesman.sid,
+            
         }
         create_token = jwt.encode(token_data,SECRET_KEY,algorithm=ALGORITHM)
         res.set_cookie(key="access_token",value=create_token,httponly=True,secure=False,samesite="strict",max_age=ACCESS_TOKEN_EXPIRE_MINUTES*60)
